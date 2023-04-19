@@ -60,7 +60,7 @@ def generate_data(num_records=10):
         first_name = fake.first_name()
         last_name = fake.last_name()
         position = fake.job()
-        dob = fake.date_of_birth()
+        dob = fake.date_of_birth(minimum_age=18, maximum_age=65)
         age = (date.today() - dob) // timedelta(days=365.25)
         start_date = fake.date_between(start_date='-10y', end_date='today')
         office = fake.company()
