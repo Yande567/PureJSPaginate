@@ -107,7 +107,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-z4yii1@evcvamg+6z8$&_!a26z)fr$%fs7l@ocs@t#jg+rxoht"
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -126,6 +126,7 @@ INSTALLED_APPS = [
 
     # 3rd Party Apps
     "rest_framework",
+    "corsheaders",
 
     # Local Apps
     "api",
@@ -134,11 +135,17 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+CORS_ORIGIN_WHITE_LIST = [
+    "http://localhost:3000",
+    "http://localhost:8080",
 ]
 
 ROOT_URLCONF = "PureJSPaginate.urls"
